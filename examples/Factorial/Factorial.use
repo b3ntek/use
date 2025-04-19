@@ -1,0 +1,9 @@
+model Factorial
+
+class Rec
+operations
+  fac(n : Integer) : Integer =
+    if n <= 1 then 1 else n * self.fac(n - 1) endif
+  pre: n >= 0
+  post: result = Sequence{1..n}->iterate(i : Integer; acc : Integer = 1 | acc * i)
+end
